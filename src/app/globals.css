@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* Claro */
+:root, [data-theme="light"] {
+  --bg: #f8fafc;
+  --fg: #0f172a;
+  --muted: #475569;
+  --border: #e2e8f0;
+  --card: #ffffff;
+  --accent: #059669;
+  --accent-contrast: #ffffff;
+  --accent-soft: #ecfdf5;
+}
+
+[data-theme="dark"] {
+  --bg: #020617;          /* slate-950 */
+  --fg: #e5e7eb;          /* um pouquinho mais claro que slate-200 */
+  --muted: #a8b3cf;       /* mais legível que slate-400 */
+  --border: #334155;      /* slate-700 */
+  --card: #0f172a;        /* slate-900 (card escuro) */
+
+  --accent: #34d399;      
+  --accent-contrast: #06281a;
+  --accent-soft: #052e24;
+}
+
+/* System (fallback) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #020617;
+    --fg: #e2e8f0;
+  }
+}
+
+html, body { min-height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color .25s, color .25s;
+}
+::selection { background: var(--accent); color: var(--accent-contrast); }
