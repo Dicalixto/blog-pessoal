@@ -8,10 +8,11 @@ interface PostPageParams extends ParsedUrlQuery {
 }
 
 export async function generateStaticParams() {
+  // Generate params for static pages
   return posts.map((p) => ({ slug: `dia-${p.day}` }));
 }
 
-export default function PostPage({ params }: { params: PostPageParams }) {
+export default async function PostPage({ params }: { params: PostPageParams }) {
   const post = posts.find((p) => `dia-${p.day}` === params.slug);
   if (!post) return notFound();
   return (
