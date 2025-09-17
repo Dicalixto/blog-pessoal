@@ -1,4 +1,5 @@
-// src/app/sobre/page.tsx
+import Link from 'next/link';
+
 export const metadata = {
   title: 'Sobre mim — Mochilando por Aí',
   description:
@@ -83,18 +84,18 @@ export default function SobrePage() {
               mundo. Dê uma olhada nos relatos e escolha seu primeiro destino.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
-              <a
+              <Link
                 href="/"
                 className="inline-flex items-center rounded-xl border border-transparent bg-[--color-accent] text-[--color-accent-contrast] px-4 py-2 text-sm hover:opacity-90"
               >
                 Ver relatos
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/post/dia-1"
                 className="inline-flex items-center rounded-xl border border-[--color-border] bg-[--color-card] px-4 py-2 text-sm hover:bg-[--color-accent-soft]/60"
               >
                 Começar pelo Dia 1
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -118,19 +119,19 @@ export default function SobrePage() {
             <h4 className="font-semibold text-[--color-foreground]">Atalhos</h4>
             <ul className="mt-2 space-y-2 text-sm">
               <li>
-                <a href="/" className="underline hover:opacity-80">
+                <Link href="/" className="underline hover:opacity-80">
                   Todos os relatos
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/post/dia-3" className="underline hover:opacity-80">
+                <Link href="/post/dia-3" className="underline hover:opacity-80">
                   Subida desafiadora
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/post/dia-5" className="underline hover:opacity-80">
+                <Link href="/post/dia-5" className="underline hover:opacity-80">
                   Céu estrelado no acampamento
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -139,4 +140,3 @@ export default function SobrePage() {
     </section>
   );
 }
-  
