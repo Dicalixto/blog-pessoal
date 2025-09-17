@@ -1,11 +1,17 @@
 import { notFound } from 'next/navigation';
 import { posts } from '../../../data/posts';
+import { ParsedUrlQuery } from 'querystring';
+
+// Define the expected type for the params
+interface PostPageParams extends ParsedUrlQuery {
+  slug: string;
+}
 
 export async function generateStaticParams() {
   return posts.map((p) => ({ slug: `dia-${p.day}` }));
 }
 
-export default function PostPage({ params }: { params: { slug: string } }) {
+export default function PostPage({ params }: { params: PostPageParams }) {
   const post = posts.find((p) => `dia-${p.day}` === params.slug);
   if (!post) return notFound();
   return (
