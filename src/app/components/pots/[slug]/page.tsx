@@ -12,7 +12,7 @@ export async function generateStaticParams() {
   return posts.map((p) => ({ slug: `dia-${p.day}` }));
 }
 
-export default async function PostPage({ params }: { params: PostPageParams }) {
+export default function PostPage({ params }: { params: PostPageParams }) {
   const post = posts.find((p) => `dia-${p.day}` === params.slug);
   if (!post) return notFound();
   return (
